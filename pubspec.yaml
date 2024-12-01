@@ -1,0 +1,11 @@
+name: aoc
+description: Advent of Code 2024
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+dev_dependencies:
+  very_good_analysis: ^6.0.0
+
