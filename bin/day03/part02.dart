@@ -1,7 +1,7 @@
 import 'dart:io';
 
 Future<void> main() async {
-  final file = File('assets/day03/part01.txt');
+  final file = File('assets/day03/part02.txt');
   final content = await file.readAsString();
 
   final regex = RegExp(r"mul\((\d+),(\d+)\)|do\(\)|don\'t\(\)");
