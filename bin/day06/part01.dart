@@ -184,7 +184,7 @@ extension _DirectionExtension on _Direction {
       };
 }
 
-class _Element {
+sealed class _Element {
   const _Element({required this.x, required this.y});
 
   final int x;
