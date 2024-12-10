@@ -26,8 +26,8 @@ Future<void> main() async {
     return;
   }
 
-  final visitedRoutes = _countGuardVisitedRoutes(navigatedMap.$1);
-  final loopCount = navigatedMap.$2;
+  final visitedRoutes = _countGuardVisitedRoutes(navigatedMap.map);
+  final loopCount = navigatedMap.loopCount;
 
   print('visitedRoutes: $visitedRoutes');
   print('loopCount: $loopCount');
@@ -44,7 +44,7 @@ int _countGuardVisitedRoutes(List<List<_Element>> map) {
   return result;
 }
 
-(List<List<_Element>>, int)? _navigateGuardMap(
+({List<List<_Element>> map, int loopCount})? _navigateGuardMap(
   List<List<_Element>> map,
   bool loopTest,
 ) {
@@ -112,10 +112,10 @@ int _countGuardVisitedRoutes(List<List<_Element>> map) {
       }
     }
 
-    return (source, loopCount);
+    return (map: source, loopCount: loopCount);
   }
 
-  return (source, 0);
+  return (map: source, loopCount: 0);
 }
 
 List<List<_Element>> _copyMap(List<List<_Element>> map) {
