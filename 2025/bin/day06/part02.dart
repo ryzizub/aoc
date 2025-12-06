@@ -30,7 +30,7 @@ Future<void> main() async {
   final problems = <_Problem>[];
   final numbers = <int>[];
 
-  var _operator = _Operator.add;
+  var operator = _Operator.add;
 
   for (var i = 0; i < lines.first.length; i++) {
     final column = lines
@@ -40,16 +40,16 @@ Future<void> main() async {
     final isEmptyBlock = column.every((element) => element == ' ');
 
     if (isEmptyBlock) {
-      final problem = _Problem(List.from(numbers), _operator);
+      final problem = _Problem(List.from(numbers), operator);
       problems.add(problem);
       numbers.clear();
       continue;
     }
 
     if (lines.last[i] == '+') {
-      _operator = _Operator.add;
+      operator = _Operator.add;
     } else if (lines.last[i] == '*') {
-      _operator = _Operator.multiply;
+      operator = _Operator.multiply;
     }
 
     final number = int.parse(column.join());
@@ -58,7 +58,7 @@ Future<void> main() async {
   }
 
   if (numbers.isNotEmpty) {
-    final problem = _Problem(List.from(numbers), _operator);
+    final problem = _Problem(List.from(numbers), operator);
     problems.add(problem);
   }
 
